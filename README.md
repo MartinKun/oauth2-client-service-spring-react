@@ -40,11 +40,11 @@ Crear una base de datos en MySQl de nombre <code>oauth2</code>
 - <code>DB_USERNAME</code>: nombre de usuario de la base de datos.
 - <code>DB_PASSWORD</code>: contraseña del usuario de la base de datos.
 - <code>ACCESS_SECRET</code>: clave secreta para generar y verificar los tokens de acceso.
-- <code>ACCESS_EXPIRATION</code>: tiempo de expiración en horas del token de acceso.
+- <code>ACCESS_EXPIRATION</code>: tiempo de expiración en milisegundos del token de acceso.
 - <code>REFRESH_SECRET</code>: clave secreta para generar y verificar los tokens de actualización.
-- <code>REFRESH_EXPIRATION</code>: tiempo de expiración en horas del token de actualización.
+- <code>REFRESH_EXPIRATION</code>: tiempo de expiración en milisegundos del token de actualización.
 - <code>CONFIRMATION_SECRET</code>: clave secreta para generar y verificar los tokens de confirmación.
-- <code>CONFIRMATION_EXPIRATION</code>: tiempo de expiración en horas del token de confirmación.
+- <code>CONFIRMATION_EXPIRATION</code>: tiempo de expiración en milisegundos del token de confirmación.
 - <code>EMAIL_USERNAME</code>: nombre de usuario del correo electrónico.
 - <code>EMAIL_PASSWORD</code>: contraseña del correo electrónico.
 - <code>EMAIL_HOST</code>: host del servidor de correo electrónico.
