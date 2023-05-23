@@ -1,0 +1,71 @@
+server:
+  port: 8080
+
+# database
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/oauth2
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+# oauth2
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_CLIENT_ID}
+            clientSecret: ${GOOGLE_SECRET}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: ${FACEBOOK_CLIENT_ID}
+            clientSecret: ${FACEBOOK_SECRET}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - public_profile
+          github:
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_SECRET}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - user:email
+              - read:user
+app:
+  cors:
+    allowedOrigins: http://localhost:5173,http://localhost:8080
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we will generate the refresh and access tokens for the user and send them to the
+    # redirectUri mentioned by the client in the /oauth2/authorize request.
+    authorizedRedirectUri:
+      - http://localhost:5173/oauth2/redirect
+
+
+# jwt
+jwt:
+  access:
+    secret: ${ACCESS_SECRET}
+    expiration: ${ACCESS_EXPIRATION}
+  refresh:
+    secret: ${REFRESH_SECRET}
+    expiration: ${REFRESH_EXPIRATION}
+  confirmation:
+    secret: ${CONFIRMATION_SECRET}
+    expiration: ${CONFIRMATION_EXPIRATION}
+
+# email
+email:
+  username: ${EMAIL_USERNAME}
+  password: ${EMAIL_PASSWORD}
+  host: ${EMAIL_HOST}
